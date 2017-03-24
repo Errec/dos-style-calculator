@@ -1,0 +1,45 @@
+{
+  "name": "dos-style-calculator",
+  "version": "1.0.0",
+  "description": "This is an old ui style calculator, based on the Borland Sidekick DOS software",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Errec/dos-style-calculator.git"
+  },
+  "keywords": [
+    "calculator",
+    "js",
+    "css",
+    "react",
+    "html",
+    "web-app"
+  ],
+  "author": "Errec",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Errec/dos-style-calculator/issues"
+  },
+  "homepage": "https://github.com/Errec/dos-style-calculator#readme",
+  "devDependencies": {
+    "beeper": "^1.1.1",
+    "browser-sync": "^2.18.8",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-cache": "^0.4.6",
+    "gulp-clean-css": "^3.0.4",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^3.1.1",
+    "gulp-notify": "^3.0.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-pug": "^3.3.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.4.1",
+    "gulp-uglify": "^2.1.2",
+    "gulp-util": "^3.0.8"
+  }
+}
