@@ -17,9 +17,7 @@ var gutil        = require('gulp-util');
 // sudo npm install gulp-uglify browser-sync gulp-plumber gulp-autoprefixer gulp-sass gulp-pug gulp-imagemin gulp-cache gulp-clean-css gulp-sourcemaps gulp-concat beeper gulp-util gulp-rename gulp-notify --save-dev
 
 // Holds the js files to be concatenated
-var jsFiles = [ 'js/vendor/jquery/dist/jquery.min.js',
-                'js/vendor/bootstrap/dist/js/bootstrap.min.js',
-                'js/main.js'];
+var jsFiles = [ 'js/*.js'];
 // Used in existsSync to check if font directory patch exist
 var fs = require('fs');
 // Custom error msg with beep sound and text color
