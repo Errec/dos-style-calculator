@@ -10,6 +10,31 @@ html(lang="en")
     //[if lt IE 9]> <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script><script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script> <![endif]
 
   body
-    h1 Hello World!
+    div.calculator
+      div.calculator__result-display 1 +
+      div.calculator__input-display 2
+      div.calculator__keypad
+        div.keypad__digits
+          button.key.key-0 0
+          button.key.key-1 1
+          button.key.key-2 2
+          button.key.key-3 3
+          button.key.key-4 4
+          button.key.key-5 5
+          button.key.key-6 6
+          button.key.key-7 7
+          button.key.key-8 8
+          button.key.key-9 9
+          button.key.key-dot .
+        div.keypad__process-keys
+          div.keypad__functions
+            button.key.key-sign +/-
+            button.key.key-CLR CLR
+            button.key.key-result =
+          div.keypad__operators
+            button.key.key-divide ÷
+            button.key.key-multiply *
+            button.key.key-subtract -
+            button.key.key-add +
 
   script(src="js/bundle.min.js")
