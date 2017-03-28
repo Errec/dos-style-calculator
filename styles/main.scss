@@ -1,3 +1,13 @@
 @import 'modules/normalize.scss'
 @import 'modules/reset.scss'
+@import 'calculator.sass'
 
+html
+  height: 100%
+
+body
+  height: 100%
+  background-color: #1496F9
+  display: flex
+  align-items: center
+  justify-content: center
