@@ -1,4 +1,6 @@
 .calculator
+  position: absolute
+  font-size: 0.85rem
   color: white
   background-color: black
 
@@ -25,10 +27,11 @@
   background-color: #afa8af
 
 .display-line
+  position: relative
   height: 1px
   width: 260px
   background-color: black
-  margin-top: 6px
+  top: 8px
   margin-left: -180px
 
 .calculator__input-display
@@ -40,17 +43,49 @@
     float: right
 
 .calculator__keypad
+  display: flex
+  margin: 8px 8px 0 8px
   background-color: #505750
+  padding: 16px 8px 4px 8px
 
-button
+.key
   border: none
+  margin-top: 0
+  margin-right: 21px
+  margin-bottom: 14px
+  margin-top: 0
+  width: 30px
+  height: 18px
+  box-shadow: 10px 10px 0px 0px rgba(0,0,0,1)
 
 .keypad__digits
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-between
   button
     background-color: #0000af
     color: #ffff50
 
+.key-0
+  flex: 1
+
 .keypad__process-keys
+  display: flex
   button
     background-color: #00a800
     color: #50ffff
+
+.keypad__operators
+  display: flex
+  flex-wrap: wrap
+  flex-direction: column
+
+.keypad__functions
+  display: flex
+  flex-wrap: wrap
+  flex-direction: column
+
+.key-result
+  flex: 2
+.key-clr
+  padding: 0
