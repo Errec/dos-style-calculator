@@ -9,15 +9,27 @@
   width: 300px
   height: 280px
 
+.clearfix:after
+   content: "."
+   visibility: hidden
+   display: block
+   height: 0
+   clear: both
+
+
 .calculator__result-display
+  margin: 8px 8px 0 8px
+  padding-left: 160px
   color: black
   background-color: #afa8af
 
 .calculator__input-display
   border-top: solid 1px white
-  padding: 6px 0
+  padding: 6px 2px
   border-bottom: solid 1px white
   margin: 8px 4px
+  p
+    float: right
 
 .calculator__keypad
   background-color: #505750

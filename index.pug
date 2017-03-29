@@ -12,8 +12,13 @@ html(lang="en")
   body
     div.calculator
       div.calculator__frame
-        div.calculator__result-display 1 +
-        div.calculator__input-display 2
+        div.calculator__result-display
+          p.term-one 1 +
+          p.term-two 2 =
+          p.term-result 4
+          div.display-line
+        div.calculator__input-display.clearfix
+          p 2
         div.calculator__keypad
           div.keypad__digits
             button.key.key-0 0
