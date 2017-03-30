@@ -1,4 +1,5 @@
 .calculator
+  font-family: MorePerfectDOSVGA
   position: absolute
   font-size: 0.85rem
   color: white
@@ -21,6 +22,7 @@
 
 
 .calculator__result-display
+  font-size: 0.9rem
   margin: 8px 8px 0 8px
   padding-bottom: 16px
   padding-left: 180px
@@ -42,6 +44,7 @@
   margin: 8px 4px
   p
     float: right
+    font-weight: bold
 
 .calculator__keypad
   display: flex
@@ -50,6 +53,8 @@
   padding: 16px 8px 4px 8px
 
 .key
+  font-size: 1rem
+  font-family: MorePerfectDOSVGA
   border: none
   margin-top: 0
   margin-right: 21px
@@ -58,6 +63,9 @@
   width: 30px
   height: 18px
   box-shadow: 10px 10px 0px 0px rgba(0,0,0,1)
+  text-align: center
+  position: relative
+  outline: none
 
 .keypad__digits
   display: flex
@@ -88,10 +96,6 @@
 
 .key-result
   flex: 2
-.key-clr
+.key-clr, .key-sign
   padding: 0
 
-.key
-  text-align: center
-  position: relative
-  outline: none
