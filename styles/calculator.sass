@@ -1,3 +1,10 @@
+.clearfix:after
+   content: ""
+   visibility: hidden
+   display: block
+   height: 0
+   clear: both
+
 .calculator
   font-family: MorePerfectDOSVGA
   position: absolute
@@ -12,14 +19,6 @@
   margin: 6px 2px
   width: 300px
   height: 280px
-
-.clearfix:after
-   content: "."
-   visibility: hidden
-   display: block
-   height: 0
-   clear: both
-
 
 .calculator__result-display
   font-size: 0.9rem
@@ -45,6 +44,9 @@
   p
     float: right
     font-weight: bold
+    &:after
+      content: '_'
+      animation: 1s blink step-end infinite
 
 .calculator__keypad
   display: flex
@@ -99,3 +101,8 @@
 .key-clr, .key-sign
   padding: 0
 
+@keyframes "blink"
+  from, to
+    color: transparent
+  50%
+    color: white
