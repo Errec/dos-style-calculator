@@ -3,6 +3,7 @@ var keyDigit     = document.getElementsByClassName("key-digit");
 var inputDisplay = document.getElementById("input-display");
 var keyDot       = document.getElementById("key-dot");
 var keySign       = document.getElementById("key-sign");
+var keyCLR       = document.getElementById("key-clr");
 
 for (var i = 0; i < keyDigit.length; i++) {
   keyDigit[i].onclick = function(e) {
@@ -19,6 +20,11 @@ keyDot.onclick = function(e) {
 keySign.onclick = function(e) {
   animateBtn(this);
   inputDisplay.textContent[0] === '-' ? inputDisplay.textContent = inputDisplay.textContent.substr(1) : inputDisplay.textContent = '-' + inputDisplay.textContent;
+};
+
+keyCLR.onclick = function(e) {
+  animateBtn(this);
+  inputDisplay.textContent = '0';
 };
 
 
