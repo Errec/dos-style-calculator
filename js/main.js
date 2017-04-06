@@ -2,9 +2,10 @@ var key = document.getElementsByClassName("key");
 var keyDigit = document.getElementsByClassName("key-digit");
 var inputDisplay = document.getElementById("term-input");
 
-for (var i = 0; i < key.length; i++) {
-  key[i].onclick = function(e) {
+for (var i = 0; i < keyDigit.length; i++) {
+  keyDigit[i].onclick = function(e) {
     animateBtn(this);
+    inputDisplay.textContent === '0' ? inputDisplay.textContent = this.textContent : inputDisplay.textContent += this.textContent;
   };
 }
 
