@@ -2,7 +2,7 @@ var key          = document.getElementsByClassName("key");
 var keyDigit     = document.getElementsByClassName("key-digit");
 var inputDisplay = document.getElementById("input-display");
 var keyDot       = document.getElementById("key-dot");
-var keySign       = document.getElementById("key-sign");
+var keySign      = document.getElementById("key-sign");
 var keyCLR       = document.getElementById("key-clr");
 
 for (var i = 0; i < keyDigit.length; i++) {
@@ -46,13 +46,13 @@ function Operation(termOne, operator, termTwo) {
   this.result = function() {
     switch(this.operator) {
       case '+':
-        return termOne + termTwo;
+        return parseFloat(termOne) + parseFloat(termTwo);
       case '-':
-        return termOne - termTwo;
+        return parseFloat(termOne) - parseFloat(termTwo);
       case '*':
-        return termOne * termTwo;
+        return parseFloat(termOne) * parseFloat(termTwo);
       case '/':
-        return termOne / termTwo;
+        return parseFloat(termOne) / parseFloat(termTwo);
     }
   };
 }
