@@ -27,7 +27,6 @@ keyCLR.onclick = function(e) {
   inputDisplay.textContent = '0';
 };
 
-
 function animateBtn(btn) {
   btn.style.top= "7px";
   btn.style.left= "7px";
@@ -37,4 +36,23 @@ function animateBtn(btn) {
     btn.style.left= "0px";
     btn.style.boxShadow = "10px 10px 0px 0px rgba(0,0,0,1)";
   }, 100);
+}
+
+function Operation(termOne, operator, termTwo) {
+  this.termOne  = termOne;
+  this.operator = operator;
+  this.termTwo  = termTwo;
+
+  this.result = function() {
+    switch(this.operator) {
+      case '+':
+        return termOne + termTwo;
+      case '-':
+        return termOne - termTwo;
+      case '*':
+        return termOne * termTwo;
+      case '/':
+        return termOne / termTwo;
+    }
+  };
 }
