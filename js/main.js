@@ -5,6 +5,7 @@ var inputDisplay = document.getElementById("input-display");
 var keyDot       = document.getElementById("key-dot");
 var keySign      = document.getElementById("key-sign");
 var keyCLR       = document.getElementById("key-clr");
+var keyResult    = document.getElementById("key-result");
 var operationBuff = [1, 0, 0, null]; // [term number: first(1) or second(2), first term value, second term value, sign]
 var myOperations = [];
 
@@ -59,13 +60,25 @@ keyCLR.onclick = function(e) {
   updateBuff();
 }; // TODO: reset buff
 
+keyResult.onclick = function(e) {
+  animateBtn(this);
+  if(operationBuff[0] === 2 && !(inputDisplay.textContent === '0' || inputDisplay.textContent === '-0' || inputDisplay.textContent === '0.' || inputDisplay.textContent === '-0.')) {
+    myOperations.push(new Operation(operationBuff[1], operationBuff[3], operationBuff[2]));
+    operationBuff[0] = 1;
+    operationBuff[1] = 0;
+    operationBuff[2] = 0;
+    operationBuff[3] = null;
+    inputDisplay.textContent = '0';
+  }
+};
+
 function animateBtn(btn) {
-  btn.style.top= "7px";
-  btn.style.left= "7px";
+  btn.style.top       = "7px";
+  btn.style.left      = "7px";
   btn.style.boxShadow = "3px 3px 0px 0px rgba(0,0,0,1)";
   setTimeout(function() {
-    btn.style.top= "0px";
-    btn.style.left= "0px";
+    btn.style.top       = "0px";
+    btn.style.left      = "0px";
     btn.style.boxShadow = "10px 10px 0px 0px rgba(0,0,0,1)";
   }, 100);
 }
