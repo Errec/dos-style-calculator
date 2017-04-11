@@ -5,30 +5,33 @@ var inputDisplay = document.getElementById("input-display");
 var keyDot       = document.getElementById("key-dot");
 var keySign      = document.getElementById("key-sign");
 var keyCLR       = document.getElementById("key-clr");
-var operationBuff = [0, 0];
+var operationBuff = [1, '0', '0']; // [term number: first(1) or second(2), first term value, second term value]
 var myOperatiops = [];
 
 for (var i = 0; i < keyDigit.length; i++) {
   keyDigit[i].onclick = function(e) {
     animateBtn(this);
     inputDisplay.textContent === '0' ? inputDisplay.textContent = this.textContent : inputDisplay.textContent += this.textContent;
+    updateBuff();
   };
 }
-
 
 keyDot.onclick = function(e) {
   animateBtn(this);
   inputDisplay.textContent.indexOf('.') === -1 ? inputDisplay.textContent += this.textContent : '';
+  updateBuff();
 };
 
 keySign.onclick = function(e) {
   animateBtn(this);
   inputDisplay.textContent[0] === '-' ? inputDisplay.textContent = inputDisplay.textContent.substr(1) : inputDisplay.textContent = '-' + inputDisplay.textContent;
+  updateBuff();
 };
 
 keyCLR.onclick = function(e) {
   animateBtn(this);
   inputDisplay.textContent = '0';
+  updateBuff();
 };
 
 function animateBtn(btn) {
@@ -61,4 +64,8 @@ function Operation(termOne, operator, termTwo) {
       this.result = parseFloat(termOne) / parseFloat(termTwo);
       break;
   }
+}
+
+function updateBuff(){
+  operationBuff[0] === 1 ? operationBuff[1] = inputDisplay.textContent : operationBuff[2] = inputDisplay.textContent;
 }
