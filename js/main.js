@@ -5,7 +5,7 @@ var inputDisplay = document.getElementById("input-display");
 var keyDot       = document.getElementById("key-dot");
 var keySign      = document.getElementById("key-sign");
 var keyCLR       = document.getElementById("key-clr");
-var operationBuff = [1, '0', '0', null]; // [term number: first(1) or second(2), first term value, second term value, sign]
+var operationBuff = [1, 0, 0, null]; // [term number: first(1) or second(2), first term value, second term value, sign]
 var myOperations = [];
 
 for (var i = 0; i < keyDigit.length; i++) {
@@ -17,6 +17,27 @@ for (var i = 0; i < keyDigit.length; i++) {
   };
 }
 
+for (var i = 0; i < keyOperator.length; i++) {
+  keyOperator[i].onclick = function(e) {
+    animateBtn(this);
+    if(inputDisplay.textContent === '0' || inputDisplay.textContent === '-0' || inputDisplay.textContent === '0.' || inputDisplay.textContent === '-0.') {
+      operationBuff[3] = this.textContent;
+      return;
+    } else {
+        if(operationBuff[0] === 1) {
+          inputDisplay.textContent = '0';
+          operationBuff[3]         = this.textContent;
+          operationBuff[0]         = 2;
+        } else {
+            myOperations.push(new Operation(operationBuff[1], operationBuff[3], operationBuff[2]));
+            inputDisplay.textContent = '0';
+            operationBuff[1]         = myOperations[myOperations.length - 1].result;
+            operationBuff[2]         = 0;
+            operationBuff[3]         = this.textContent;
+        }
+    }
+  };
+}
 
 keyDot.onclick = function(e) {
   animateBtn(this);
@@ -56,16 +77,16 @@ function Operation(termOne, operator, termTwo) {
 
   switch(this.operator) {
     case '+':
-      this.result = parseFloat(termOne) + parseFloat(termTwo);
+      this.result = termOne + termTwo;
       break;
     case '-':
-      this.result = parseFloat(termOne) - parseFloat(termTwo);
+      this.result = termOne - termTwo;
       break;
     case '*':
-      this.result = parseFloat(termOne) * parseFloat(termTwo);
+      this.result = termOne * termTwo;
       break;
-    case '/':
-      this.result = parseFloat(termOne) / parseFloat(termTwo);
+    case '÷':
+      this.result = termOne / termTwo;
       break;
   }
 }
@@ -77,5 +98,5 @@ function checkBuff() {
 }
 
 function updateBuff(){
-  operationBuff[0] === 1 ? operationBuff[1] = inputDisplay.textContent : operationBuff[2] = inputDisplay.textContent;
+  operationBuff[0] === 1 ? operationBuff[1] = parseFloat(inputDisplay.textContent) : operationBuff[2] = parseFloat(inputDisplay.textContent);
 }
