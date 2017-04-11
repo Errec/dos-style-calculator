@@ -43,16 +43,18 @@ function Operation(termOne, operator, termTwo) {
   this.operator = operator;
   this.termTwo  = termTwo;
 
-  this.result = function() {
-    switch(this.operator) {
-      case '+':
-        return parseFloat(termOne) + parseFloat(termTwo);
-      case '-':
-        return parseFloat(termOne) - parseFloat(termTwo);
-      case '*':
-        return parseFloat(termOne) * parseFloat(termTwo);
-      case '/':
-        return parseFloat(termOne) / parseFloat(termTwo);
-    }
-  };
+  switch(this.operator) {
+    case '+':
+      this.result = parseFloat(termOne) + parseFloat(termTwo);
+      break;
+    case '-':
+      this.result = parseFloat(termOne) - parseFloat(termTwo);
+      break;
+    case '*':
+      this.result = parseFloat(termOne) * parseFloat(termTwo);
+      break;
+    case '/':
+      this.result = parseFloat(termOne) / parseFloat(termTwo);
+      break;
+  }
 }
