@@ -1,9 +1,12 @@
 var key          = document.getElementsByClassName("key");
 var keyDigit     = document.getElementsByClassName("key-digit");
+var keyOperator  = document.getElementsByClassName("key-operators");
 var inputDisplay = document.getElementById("input-display");
 var keyDot       = document.getElementById("key-dot");
 var keySign      = document.getElementById("key-sign");
 var keyCLR       = document.getElementById("key-clr");
+var operationBuff = [0, 0];
+var myOperatiops = [];
 
 for (var i = 0; i < keyDigit.length; i++) {
   keyDigit[i].onclick = function(e) {
@@ -11,6 +14,7 @@ for (var i = 0; i < keyDigit.length; i++) {
     inputDisplay.textContent === '0' ? inputDisplay.textContent = this.textContent : inputDisplay.textContent += this.textContent;
   };
 }
+
 
 keyDot.onclick = function(e) {
   animateBtn(this);
