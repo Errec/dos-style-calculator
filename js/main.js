@@ -1,13 +1,16 @@
-var key          = document.getElementsByClassName("key");
-var keyDigit     = document.getElementsByClassName("key-digit");
-var keyOperator  = document.getElementsByClassName("key-operators");
-var inputDisplay = document.getElementById("input-display");
-var keyDot       = document.getElementById("key-dot");
-var keySign      = document.getElementById("key-sign");
-var keyCLR       = document.getElementById("key-clr");
-var keyResult    = document.getElementById("key-result");
-var operationBuff = [1, 0, 0, null]; // [term number: first(1) or second(2), first term value, second term value, sign]
-var myOperations = [];
+var key               = document.getElementsByClassName("key");
+var keyDigit          = document.getElementsByClassName("key-digit");
+var keyOperator       = document.getElementsByClassName("key-operators");
+var inputDisplay      = document.getElementById("input-display");
+var keyDot            = document.getElementById("key-dot");
+var keySign           = document.getElementById("key-sign");
+var keyCLR            = document.getElementById("key-clr");
+var keyResult         = document.getElementById("key-result");
+var displayTermOne    = document.getElementById("term-one");
+var displayTermTwo    = document.getElementById("term-two");
+var displayTermResult = document.getElementById("term-result");
+var operationBuff     = [1, 0, 0, null]; // [term number: first(1) or second(2), first term value, second term value, sign]
+var myOperations      = [];
 
 for (var i = 0; i < keyDigit.length; i++) {
   keyDigit[i].onclick = function(e) {
@@ -112,4 +115,11 @@ function checkBuff() {
 
 function updateBuff(){
   operationBuff[0] === 1 ? operationBuff[1] = parseFloat(inputDisplay.textContent) : operationBuff[2] = parseFloat(inputDisplay.textContent);
+}
+
+function updateDisplay(index) {
+  var operation = myOperations[index];
+  displayTermOne.textContent = operation.termOne + " " + operation.operator;
+  displayTermTwo.textContent = operation.termTwo + " =";
+  displayTermResult.textContent = operation.result;
 }
