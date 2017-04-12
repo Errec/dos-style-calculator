@@ -17,7 +17,9 @@ for (var i = 0; i < keyDigit.length; i++) {
     animateBtn(this);
     checkBuff();
     inputDisplay.textContent === '0' ? inputDisplay.textContent = this.textContent : inputDisplay.textContent += this.textContent;
-    updateBuff();
+    if (inputDisplay.textContent !== '0' && inputDisplay.textContent !== '-0' && inputDisplay.textContent !== '0.' && inputDisplay.textContent !== '-0.') {
+      updateBuff();
+    }
   };
 }
 
