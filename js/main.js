@@ -86,9 +86,13 @@ keySign.onclick = function(e) {
 
 keyCLR.onclick = function(e) {
   animateBtn(this);
+  operationBuff[0] = 1;
+  operationBuff[1] = 0;
+  operationBuff[2] = 0;
+  operationBuff[3] = null;
   inputDisplay.textContent = '0';
   updateBuff();
-}; // TODO: reset buff
+};
 
 keyResult.onclick = function(e) {
   animateBtn(this);
