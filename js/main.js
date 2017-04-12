@@ -15,10 +15,14 @@ var displayLine       = document.getElementById("display-line");
 var operationBuff     = [1, 0, 0, null]; // [term number: first(1) or second(2), first term value, second term value, sign]
 var myOperations      = [];
 var currentDiplay     = null;
+var MAX_INPUT_LENGTH = 12;
 
 for (var i = 0; i < keyDigit.length; i++) {
   keyDigit[i].onclick = function(e) {
     animateBtn(this);
+    if (numberCount(inputDisplay.textContent) >= MAX_INPUT_LENGTH) {
+      return;
+    }
     checkBuff();
     inputDisplay.textContent === '0' ? inputDisplay.textContent = this.textContent : inputDisplay.textContent += this.textContent;
     if (inputDisplay.textContent !== '0' && inputDisplay.textContent !== '-0' && inputDisplay.textContent !== '0.' && inputDisplay.textContent !== '-0.') {
@@ -53,6 +57,9 @@ for (var i = 0; i < keyOperator.length; i++) {
 
 keyDot.onclick = function(e) {
   animateBtn(this);
+  if (numberCount(inputDisplay.textContent) > MAX_INPUT_LENGTH - 1) {
+    return;
+  }
   checkBuff();
   inputDisplay.textContent.indexOf('.') === -1 ? inputDisplay.textContent += this.textContent : '';
   updateBuff();
@@ -144,13 +151,15 @@ function updateBuff(){
 }
 
 function updateDisplay(index) {
-  if (index > 0) {
-    displayLine.style.visibility = "visible";
-  } else {
-    displayLine.style.visibility = "hidden";
-  }
   var operation = myOperations[index];
+
+  index > 0 ? displayLine.style.visibility = "visible" : displayLine.style.visibility = "hidden";
   displayTermOne.textContent = operation.termOne + " " + operation.operator;
   displayTermTwo.textContent = operation.termTwo + " =";
   displayTermResult.textContent = operation.result;
+}
+
+function numberCount(number) {
+  number = number.match(/\d/g);
+  return number.join("").length;
 }
