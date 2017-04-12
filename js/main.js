@@ -11,6 +11,7 @@ var displayTermTwo    = document.getElementById("term-two");
 var displayTermResult = document.getElementById("term-result");
 var scrollTop         = document.getElementById("scroll-top");
 var scrollBottom      = document.getElementById("scroll-bottom");
+var displayLine       = document.getElementById("display-line");
 var operationBuff     = [1, 0, 0, null]; // [term number: first(1) or second(2), first term value, second term value, sign]
 var myOperations      = [];
 var currentDiplay     = null;
@@ -143,6 +144,11 @@ function updateBuff(){
 }
 
 function updateDisplay(index) {
+  if (index > 0) {
+    displayLine.style.visibility = "visible";
+  } else {
+    displayLine.style.visibility = "hidden";
+  }
   var operation = myOperations[index];
   displayTermOne.textContent = operation.termOne + " " + operation.operator;
   displayTermTwo.textContent = operation.termTwo + " =";
