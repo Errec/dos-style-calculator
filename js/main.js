@@ -156,7 +156,7 @@ function updateDisplay(index) {
   index > 0 ? displayLine.style.visibility = "visible" : displayLine.style.visibility = "hidden";
   displayTermOne.textContent = operation.termOne + " " + operation.operator;
   displayTermTwo.textContent = operation.termTwo + " =";
-  displayTermResult.textContent = operation.result;
+  numberCount(operation.result.toString()) > MAX_INPUT_LENGTH ? displayTermResult.textContent = operation.result.toExponential(6) : displayTermResult.textContent = operation.result;
 }
 
 function numberCount(number) {
