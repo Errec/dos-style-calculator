@@ -23,10 +23,19 @@
 .calculator__result-display
   font-size: 1rem
   margin: 8px 8px 0 8px
-  padding-bottom: 16px
-  padding-left: 180px
+  padding-right: 80px
   color: black
   background-color: #afa8af
+.calculator__item
+  list-style: none
+  p
+    float: right
+.calculator__grid
+    margin-bottom: 16px
+    margin-top: 0
+
+#term-result
+  padding-right: 16px
 
 .display-line
   visibility: hidden
@@ -92,6 +101,9 @@
   display: flex
   flex-wrap: wrap
   flex-direction: column
+  button
+    line-height: 1
+    font-size: 1.1rem
 
 .keypad__functions
   display: flex

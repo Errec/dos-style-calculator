@@ -13,9 +13,13 @@ html(lang="en")
     div.calculator
       div.calculator__frame
         div.calculator__result-display
-          p#term-one &nbsp;
-          p#term-two &nbsp;
-          p#term-result &nbsp;
+          ul.calculator__grid
+            li.calculator__item.clearfix
+              p#term-one &nbsp;
+            li.calculator__item.clearfix
+              p#term-two &nbsp;
+            li.calculator__item.clearfix
+              p#term-result &nbsp;
           div.display-line
         div.calculator__input-display.clearfix
           p#input-display 0
@@ -27,9 +31,9 @@ html(lang="en")
             button.key.key-digit#key-4 4
             button.key.key-digit#key-5 5
             button.key.key-digit#key-6 6
-            button.key.key-digit#key-3 3
-            button.key.key-digit#key-2 2
             button.key.key-digit#key-1 1
+            button.key.key-digit#key-2 2
+            button.key.key-digit#key-3 3
             button.key.key-digit#key-0 0
             button.key#key-dot .
           div.keypad__process-keys
