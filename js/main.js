@@ -30,6 +30,9 @@ for (var i = 0; i < keyDigit.length; i++) {
       inputDisplay.textContent = '-' + this.textContent;
     } else {
       inputDisplay.textContent += this.textContent;
+      if(numberCount(inputDisplay.textContent) === 12) {
+        inputDisplay.classList.remove("blink-cursor");
+      }
     }
 
     if (inputDisplay.textContent !== '0' && inputDisplay.textContent !== '-0' && inputDisplay.textContent !== '0.' && inputDisplay.textContent !== '-0.') {
@@ -47,11 +50,13 @@ for (var i = 0; i < keyOperator.length; i++) {
     } else {
         if(operationBuff[0] === 1) {
           inputDisplay.textContent = '0';
+          inputDisplay.classList.add("blink-cursor");
           operationBuff[3]         = this.textContent;
           operationBuff[0]         = 2;
         } else {
             myOperations.push(new Operation(operationBuff[1], operationBuff[3], operationBuff[2]));
             inputDisplay.textContent = '0';
+            inputDisplay.classList.add("blink-cursor");
             operationBuff[1]         = myOperations[myOperations.length - 1].result;
             operationBuff[2]         = 0;
             operationBuff[3]         = this.textContent;
@@ -96,6 +101,7 @@ keyResult.onclick = function(e) {
     inputDisplay.textContent = '0';
     currentDiplay = myOperations.length - 1;
     updateDisplay(myOperations.length - 1);
+    inputDisplay.classList.add("blink-cursor");
   }
 };
 
