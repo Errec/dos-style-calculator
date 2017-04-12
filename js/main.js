@@ -11,6 +11,7 @@ var displayTermTwo    = document.getElementById("term-two");
 var displayTermResult = document.getElementById("term-result");
 var operationBuff     = [1, 0, 0, null]; // [term number: first(1) or second(2), first term value, second term value, sign]
 var myOperations      = [];
+var currentDiplay     = null;
 
 for (var i = 0; i < keyDigit.length; i++) {
   keyDigit[i].onclick = function(e) {
@@ -40,6 +41,7 @@ for (var i = 0; i < keyOperator.length; i++) {
             operationBuff[1]         = myOperations[myOperations.length - 1].result;
             operationBuff[2]         = 0;
             operationBuff[3]         = this.textContent;
+            updateDisplay(myOperations.length - 1);
         }
     }
   };
@@ -74,6 +76,7 @@ keyResult.onclick = function(e) {
     operationBuff[2] = 0;
     operationBuff[3] = null;
     inputDisplay.textContent = '0';
+    updateDisplay(myOperations.length - 1);
   }
 };
 
