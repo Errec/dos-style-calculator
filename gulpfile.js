@@ -39,7 +39,6 @@ gulp.task('styles', function() {
   .pipe(autoprefixer({
     browsers: ['last 5 versions'],
     cascade: false}))
-  .pipe(cleanCSS())
   .pipe(sourcemaps.write())
   .pipe(rename({ suffix: '.min'}))
   .pipe(gulp.dest('build/css'));

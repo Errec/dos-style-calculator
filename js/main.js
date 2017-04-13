@@ -57,7 +57,11 @@ for (var i = 0; i < keyOperator.length; i++) {
             myOperations.push(new Operation(operationBuff[1], operationBuff[3], operationBuff[2]));
             inputDisplay.textContent = '0';
             inputDisplay.classList.add("blink-cursor");
-            operationBuff[1]         = myOperations[myOperations.length - 1].result;
+            var result = parseFloat(myOperations[myOperations.length - 1].result);
+            numberCount(myOperations[myOperations.length - 1].result.toString()) >= MAX_INPUT_LENGTH ?
+            operationBuff[1] = result.toExponential(6) :
+            operationBuff[1] = result;
+
             operationBuff[2]         = 0;
             operationBuff[3]         = this.textContent;
             updateDisplay(myOperations.length - 1);
@@ -91,6 +95,7 @@ keyCLR.onclick = function(e) {
   operationBuff[2] = 0;
   operationBuff[3] = null;
   inputDisplay.textContent = '0';
+  inputDisplay.classList.add("blink-cursor");
   updateBuff();
 };
 
@@ -137,22 +142,22 @@ function animateBtn(btn) {
 }
 
 function Operation(termOne, operator, termTwo) {
-  this.termOne  = termOne;
+  this.termOne  = parseFloat(termOne);
   this.operator = operator;
-  this.termTwo  = termTwo;
+  this.termTwo  = parseFloat(termTwo);
 
   switch(this.operator) {
     case '+':
-      this.result = termOne + termTwo;
+      this.result = parseFloat(termOne) + parseFloat(termTwo);
       break;
     case '-':
-      this.result = termOne - termTwo;
+      this.result = parseFloat(termOne) - parseFloat(termTwo);
       break;
     case '*':
-      this.result = termOne * termTwo;
+      this.result = parseFloat(termOne) * parseFloat(termTwo);
       break;
     case '÷':
-      this.result = termOne / termTwo;
+      this.result = parseFloat(termOne) / parseFloat(termTwo);
       break;
   }
 }
@@ -164,7 +169,7 @@ function checkBuff() {
 }
 
 function updateBuff(){
-  operationBuff[0] === 1 ? operationBuff[1] = parseFloat(inputDisplay.textContent) : operationBuff[2] = parseFloat(inputDisplay.textContent);
+  operationBuff[0] === 1 ? operationBuff[1] = inputDisplay.textContent : operationBuff[2] = inputDisplay.textContent;
 }
 
 function updateDisplay(index) {
